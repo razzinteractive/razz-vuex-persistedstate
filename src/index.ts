@@ -57,7 +57,7 @@ export default function <State>(
   function reducer(state, paths) {
     return Array.isArray(paths)
       ? paths.reduce(function (substate, path) {
-          return shvl.set(substate, path, shvl.get(state, path));
+        return shvl.set(substate, path, shvl.get(state, path, state), substate);
         }, {})
       : state;
   }
